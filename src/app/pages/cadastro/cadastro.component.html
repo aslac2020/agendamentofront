@@ -1,0 +1,39 @@
+<div class="cadastro-container">
+  <div class="row">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo" />
+    </div>
+    <div class="cadastro-form">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Cadastro</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="cadastroForm">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="nome" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="email" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Senha</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="senha" maxlength="6" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Tipo Usuario</mat-label>
+            <mat-select formControlName="tipoUsuario" name="tipoUsuario">
+              <mat-option *ngFor="let tipoUsuario of tiposUsuarios" [value]="tipoUsuario.value">
+                {{tipoUsuario.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+        <mat-card-actions>
+          <button class="btn-cadastrar" mat-flat-button>Cadastrar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

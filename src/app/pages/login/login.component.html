@@ -8,15 +8,19 @@
         <mat-card-header>
           <mat-card-title>Login</mat-card-title>
         </mat-card-header>
-        <form>
+        <form [formGroup]="loginform">
           <mat-form-field appearance="outline" style="width: 100%;">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input matInput placeholder="Placeholder" formControlName="email" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Senha</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="senha"  maxlength="6"/>
           </mat-form-field>
         </form>
         <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
+          <button class="btn-entrar"  mat-flat-button color="primary">Entrar</button>
+          <button class="btn-cadastrar" mat-flat-button (click)="cadastrarUsuario()">Cadastrar</button>
         </mat-card-actions>
       </mat-card>
     </div>
