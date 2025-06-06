@@ -4,36 +4,37 @@
       <img src="assets/images/logo.png" alt="Logo" />
     </div>
     <div class="cadastro-form">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>Cadastro</mat-card-title>
-        </mat-card-header>
+      <p-card header="Cadastro" [style]="{ width: '25rem', overflow: 'hidden' }">
         <form [formGroup]="cadastroForm">
-          <mat-form-field appearance="outline" style="width: 100%;">
-            <mat-label>Nome</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="nome" />
-          </mat-form-field>
-          <mat-form-field appearance="outline" style="width: 100%;">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="email" />
-          </mat-form-field>
-          <mat-form-field appearance="outline" style="width: 100%;">
-            <mat-label>Senha</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="senha" maxlength="6" />
-          </mat-form-field>
-          <mat-form-field appearance="outline" style="width: 100%;">
-            <mat-label>Tipo Usuario</mat-label>
-            <mat-select formControlName="tipoUsuario" name="tipoUsuario">
-              <mat-option *ngFor="let tipoUsuario of tiposUsuarios" [value]="tipoUsuario.value">
-                {{tipoUsuario.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+          <span class="p-float-label" style="margin-top: 20px;">
+            <input type="text" pInputText formControlName="nome" id="nome" [style]="{ width: '100%'}" />
+            <label for="float-input">Nome</label>
+          </span>
+          <span class="p-float-label" style="margin-top: 20px;">
+            <input type="email" pInputText formControlName="email" id="email" [style]="{ width: '100%'}" />
+            <label for="float-input">Email</label>
+          </span>
+          <span class="p-float-label" style="margin-top: 20px;">
+            <p-password formControlName="senha" [toggleMask]="true" [feedback]="false"></p-password>
+            <label for="float-input">Senha</label>
+          </span>
+          <span class="p-float-label" style="margin-top: 20px;">
+            <p-dropdown [style]="{ width: '100%'}" formControlName="tipoUsuario" [options]="tiposUsuarios"
+              optionLabel="viewValue" placeholder="Selecione tipo de Usuario" class="w-full md:w-56"></p-dropdown>
+          </span>
+          <span class="p-float-label" style="margin-top: 20px;">
+            <p-multiSelect [style]="{ width: '100%'}" [options]="especialidadesSalao" formControlName="especialidades" optionLabel="name"
+              [defaultLabel]="'Selecione as especialidades'">
+            </p-multiSelect>
+          </span>
         </form>
-        <mat-card-actions>
-          <button class="btn-cadastrar" mat-flat-button>Cadastrar</button>
-        </mat-card-actions>
-      </mat-card>
+        <ng-template pTemplate="footer">
+          <div class="botoes">
+            <button pButton type="button" label="Cadastrar" class="btn-cadastrar"></button>
+            <a href="" class="link-cadastro">Já sou cadastrado</a>
+          </div>
+        </ng-template>
+      </p-card>
     </div>
   </div>
 </div>

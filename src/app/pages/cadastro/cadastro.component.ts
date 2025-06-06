@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { PrimeNGConfig } from 'primeng/api';
+
 
 interface TipoUsuario {
   value: string;
@@ -12,32 +15,53 @@ interface TipoUsuario {
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent implements OnInit {
- cadastroForm!: FormGroup;
- selectedValue!: string ;
+cadastroForm!: FormGroup;
+selectedValue!: string ;
+public dropdownEspecialidadesSettings = {};
+public data: { item_id: number; item_text: string }[] = [];
+
+selectedEspecialidades: string[] = [];
+especialidadesSalao!: any[];
 
  tiposUsuarios: TipoUsuario[] = [
   { value: 'cliente', viewValue: 'Cliente' },
   { value: 'profissional', viewValue: 'Profissional' },
-
  ]
 
+
+
   constructor(
-    private fb: FormBuilder
-  ) { }
+    private fb: FormBuilder,
+    private primengConfig: PrimeNGConfig
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.iniciarFormulario();
+    this.carregarEspecialidades();
+    this.primengConfig.ripple = true;
+
   }
 
   iniciarFormulario() {
     this.cadastroForm = this.fb.group({
       nome: [''],
       email: [''],
-      senha: [''],
+      senha: ['', [Validators.maxLength(6)]],
       tipoUsuario: [''],
       especialidades: [''],
-      localizacao: ['']
+      localizacao: [''],
     });
+  }
+
+  carregarEspecialidades(){
+
+    this.especialidadesSalao = [
+    { name: "Cabeleireiro(a)", code: 'Cab' },
+    { name: "Barbeiro", code: 'Barb' },
+    { name: "Maquiador", code: 'Maqu' },
+    ]
   }
 
 }

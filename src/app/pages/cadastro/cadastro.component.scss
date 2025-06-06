@@ -22,7 +22,6 @@
 }
 
 .cadastro-form {
-  max-width: 400px;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -51,9 +50,35 @@
   margin-left: 20px;
 }
 
-mat-card-actions{
+.botoes {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-top: 20px;
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 }
+
+:host ::ng-deep p-password,
+:host ::ng-deep .p-password,
+:host ::ng-deep .p-password .p-inputtext {
+  width: 100% !important;
+  display: block;
+  box-sizing: border-box;
+}
+
+:host ::ng-deep .p-password-input {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+:host ::ng-deep .p-multiselect-items p-component ng-tns-c108-2 {
+  max-height: 60px !important;
+}
+
 

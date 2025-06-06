@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './shared/material.module';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
-
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
     AppRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
